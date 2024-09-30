@@ -52,9 +52,34 @@ for (key, value) in player_pokemon_data_obj.items():
 cpu_pokemon_choice = random.choice(pokemon_list)["name"]
 print(cpu_pokemon_choice)
 cpu_pokemon_data = get_pokemon_data('https://pokeapi.co/api/v2/pokemon/', cpu_pokemon_choice)
+cpu_pokemon_data_obj = create_pokemon_data(cpu_pokemon_data)
 print(f"CPU's Pokémon: {cpu_pokemon_data['name']}")
 
-# user_attack_random = random.randint(1, 101)
-# user_defense_random= random.randint(1, 101)
-# opponent_attack_random = random.randint(1, 101)
-# opponent_defense_random = random.randint(1, 101)
+
+game = True
+round_number = 1
+
+while game:
+    is_attack = False
+    is_defense = False
+    if round_number % 2 != 0:
+    # Odd rounds: Player 1 attacks, Player 2 defends
+        player_1_attack = random.randint(1, 101)
+        player_2_defense = random.randint(1, 101)
+        if player_pokemon_data_obj["attack"] >= player_1_attack:
+             is_attack = True
+        else:
+             is_attack = False
+        if cpu_pokemon_data_obj["defense"] >= player_2_defense:
+            is_defense = True
+        else:
+             is_defense = False
+    else:
+        player_2_attack = random.randint(1, 101)
+        player_1_defense = random.randint(1, 101)
+
+
+
+
+
+
