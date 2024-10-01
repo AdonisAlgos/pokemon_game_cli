@@ -80,14 +80,14 @@ def play_game(player_pokemon_data, cpu_pokemon_data):
 
             if is_attack and is_defense:
                 cpu_pokemon_data["hp"] -= player_pokemon_data["attack"] / 2
-                print(f"{player_pokemon_name} lands a light blow")
-                print(f"{cpu_pokemon_name} takes half damage!")
+                print(f"Player: {player_pokemon_name} lands a light blow")
+                print(f"CPU: {cpu_pokemon_name} takes half damage!")
             elif is_attack:
                 cpu_pokemon_data["hp"] -= player_pokemon_data["attack"]
-                print(f"{player_pokemon_name} lands a powerful attack!")
-                print(f"{cpu_pokemon_name} takes full damage!")
+                print(f"Player: {player_pokemon_name} lands a powerful attack!")
+                print(f"CPU: {cpu_pokemon_name} takes full damage!")
             else:
-                print(f"{player_pokemon_name} tries to attack, but {cpu_pokemon_name} blocks it!")
+                print(f"Player: {player_pokemon_name} tries to attack, but {cpu_pokemon_name} blocks it!")
 
         else:
             is_attack = cpu_pokemon_data["attack"] >= attack
@@ -95,14 +95,14 @@ def play_game(player_pokemon_data, cpu_pokemon_data):
 
             if is_attack and is_defense:
                 player_pokemon_data["hp"] -= cpu_pokemon_data["attack"] / 2
-                print(f"{cpu_pokemon_name} lands a light blow")
-                print(f"{player_pokemon_name} takes half damage!")
+                print(f"CPU: {cpu_pokemon_name} lands a light blow")
+                print(f"Player: {player_pokemon_name} takes half damage!")
             elif is_attack:
                 player_pokemon_data["hp"] -= cpu_pokemon_data["attack"]
-                print(f"{cpu_pokemon_name} lands a powerful attack!")
-                print(f"{player_pokemon_name} takes full damage!")
+                print(f"CPU: {cpu_pokemon_name} lands a powerful attack!")
+                print(f"Player: {player_pokemon_name} takes full damage!")
             else:
-                print(f"{cpu_pokemon_name} tries to attack, but {player_pokemon_name} blocks it!")
+                print(f"CPU: {cpu_pokemon_name} tries to attack, but {player_pokemon_name} blocks it!")
 
         # Display HP levels after each round
         print(f"\n{player_pokemon_name} HP: {player_pokemon_data['hp']}")
@@ -110,10 +110,10 @@ def play_game(player_pokemon_data, cpu_pokemon_data):
 
         # Check if game ends
         if player_pokemon_data["hp"] <= 0:
-            print(f"{player_pokemon_name} has fainted! {cpu_pokemon_name} wins!")
+            print(f"{player_pokemon_name} has fainted! The CPU's {cpu_pokemon_name} wins!")
             game = False
         elif cpu_pokemon_data["hp"] <= 0:
-            print(f"{cpu_pokemon_name} has fainted! {player_pokemon_name} wins!")
+            print(f"{cpu_pokemon_name} has fainted! The Player's {player_pokemon_name} wins!")
             game = False
 
         round_number += 1
