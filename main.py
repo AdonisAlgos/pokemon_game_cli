@@ -33,14 +33,6 @@ def create_pokemon_data(data):
         "speed": data['stats'][5]["base_stat"],
     }
 
-# Generate dynamic commentary for battle actions
-def commentary(action, success, player_name, cpu_name):
-    player_name, cpu_name = player_name.capitalize(), cpu_name.capitalize()
-    if action == "attack":
-        return f"{player_name} lands a powerful attack!" if success else f"{player_name} tries to attack, but {cpu_name} blocks it!"
-    elif action == "defense":
-        return f"{cpu_name} defends successfully!" if success else f"{cpu_name} fails to defend, {player_name} hits directly!"
-
 # Display Pokémon names in a grid
 def display_pokemon_list(pokemon_list):
     for index, pokemon in enumerate(pokemon_list):
